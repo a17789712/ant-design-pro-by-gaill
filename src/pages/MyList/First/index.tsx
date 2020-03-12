@@ -7,34 +7,24 @@ import { Form } from '@ant-design/compatible';
 import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import styles from './style.less';
 
-
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
+const FormItem=Form.Item;
 
 class MyList extends Component {
-
-
   render() {
-
-
-
     return (
       <PageHeaderWrapper >
         <Card >
           <Form>
-            <Form.Item
-              label={<FormattedMessage id="formandbasic-form.title.label" />}
-            >
-                <Input
-                  placeholder={formatMessage({ id: 'formandbasic-form.title.placeholder' })}
-                />
+            <FormItem  label={<FormattedMessage id="formandbasic-form.title.label" />}  >
+                <Input   placeholder={formatMessage({ id: 'formandbasic-form.userName.required' })}    />
+              <FormItem  label={<FormattedMessage id="formandbasic-form.placeholder.start" />} >
+                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+              </FormItem>
 
-            </Form.Item>
+            </FormItem>
+            <FormItem  label={<FormattedMessage id="formandbasic-form.placeholder.end" />} >
+              <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            </FormItem>
 
           </Form>
         </Card>
