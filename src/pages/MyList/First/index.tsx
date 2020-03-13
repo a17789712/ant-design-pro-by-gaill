@@ -8,6 +8,10 @@ import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import styles from './style.less';
 
 const FormItem=Form.Item;
+const { RangePicker }=DatePicker;
+
+
+
 
 class MyList extends Component {
   render() {
@@ -17,14 +21,17 @@ class MyList extends Component {
           <Form>
             <FormItem  label={<FormattedMessage id="formandbasic-form.title.label" />}  >
                 <Input   placeholder={formatMessage({ id: 'formandbasic-form.userName.required' })}    />
-              <FormItem  label={<FormattedMessage id="formandbasic-form.placeholder.start" />} >
-                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+              <FormItem  >
+                {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
+                {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
+                <RangePicker   placeholder={[
+                  formatMessage({id:'formandbasic-form.placeholder.start'}),
+                  formatMessage({id:'formandbasic-form.placeholder.end'})
+                ]} />
               </FormItem>
 
             </FormItem>
-            <FormItem  label={<FormattedMessage id="formandbasic-form.placeholder.end" />} >
-              <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
-            </FormItem>
+
 
           </Form>
         </Card>
