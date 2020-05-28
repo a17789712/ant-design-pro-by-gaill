@@ -119,7 +119,7 @@ class BasicList extends Component<BasicListProps, BasicListState> {
     const { dispatch } = this.props;
     dispatch({
       type: 'listAndbasicList/submit',
-      payload: { id },
+      payload: { id ,name,dd},
     });
   };
 

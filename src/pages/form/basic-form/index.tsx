@@ -98,7 +98,7 @@ class BasicForm extends Component<BasicFormProps> {
                     formatMessage({ id: 'formandbasic-form.placeholder.start' }),
                     formatMessage({ id: 'formandbasic-form.placeholder.end' }),
                   ]}
-                />,
+                />,formItemLayout
               )}
             </FormItem>
             <FormItem
