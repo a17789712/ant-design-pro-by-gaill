@@ -25,17 +25,18 @@ interface BasicFormProps extends FormComponentProps {
 
 
 
-//xs 手机
-//sm小平板
-//md中台式
-//lg大台式
+
+@Form.create()
  class MyList extends Component<BasicFormProps> {
 
   render() {
     const {
-      form: { getFieldDecorator },
+      form: { getFieldDecorator, getFieldValue },
     } = this.props;
-
+    //xs 手机
+    //sm小平板
+    //md中台式
+    //lg大台式
     const formItemLayout = {
       labelCol: {   //标签布局
         xs: { span: 24 },
@@ -55,7 +56,7 @@ interface BasicFormProps extends FormComponentProps {
           <Form>
             <FormItem  {...formItemLayout}
               label={<FormattedMessage id="formandbasic-form.title.label" />}  >
-                <Input   placeholder={formatMessage({ id: 'formandbasic-form.userName.required' })}    />
+                <Input   placeholder={formatMessage({ id: 'mylist-form.email.required' })}    />
               <FormItem  >
                 {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
                 {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
@@ -71,20 +72,20 @@ interface BasicFormProps extends FormComponentProps {
               {...formItemLayout}
               label={<FormattedMessage id="formandbasic-form.goal.label" />}
             >
-              {/*{getFieldDecorator('goal', {*/}
-              {/*  rules: [*/}
-              {/*    {*/}
-              {/*      required: true,*/}
-              {/*      message: formatMessage({ id: 'formandbasic-form.goal.required' }),*/}
-              {/*    },*/}
-              {/*  ],*/}
-              {/*})(*/}
-              {/*  <TextArea*/}
-              {/*    style={{ minHeight: 32 }}*/}
-              {/*    placeholder={formatMessage({ id: 'formandbasic-form.goal.placeholder' })}*/}
-              {/*    rows={4}*/}
-              {/*  />,*/}
-              {/*)}*/}
+              {getFieldDecorator('goal', {
+                rules: [
+                  {
+                    required: true,
+                    message: formatMessage({ id: 'formandbasic-form.goal.required' }),
+                  },
+                ],
+              })(
+                <TextArea
+                  style={{ minHeight: 32 }}
+                  placeholder={formatMessage({ id: 'formandbasic-form.goal.placeholder' })}
+                  rows={3}
+                />,
+              )}
             </FormItem>
 
 
