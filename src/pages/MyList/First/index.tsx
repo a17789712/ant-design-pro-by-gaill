@@ -55,8 +55,20 @@ interface BasicFormProps extends FormComponentProps {
         <Card >
           <Form>
             <FormItem  {...formItemLayout}
-              label={<FormattedMessage id="formandbasic-form.title.label" />}  >
-                <Input   placeholder={formatMessage({ id: 'mylist-form.email.required' })}    />
+              label={<FormattedMessage id="formandbasic-form.title.label" />}   >
+                {/*<Input   placeholder={formatMessage({ id: 'mylist-form.email.required' })}   />*/}
+              {getFieldDecorator('title', {
+                rules: [
+                  {
+                    required: true,
+                    message: formatMessage({ id: 'formandbasic-form.goal.required' }),
+                  },
+                ],
+              })(
+                <Input
+                  placeholder={formatMessage({ id: 'mylist-form.email.required' })}
+                  />
+              )}
               <FormItem  >
                 {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
                 {/*<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />*/}
@@ -87,7 +99,23 @@ interface BasicFormProps extends FormComponentProps {
                 />,
               )}
             </FormItem>
-
+            <FormItem
+              {...formItemLayout}
+              label={<FormattedMessage id="mylist-form.email.kehu" />}
+            >
+              {
+                getFieldDecorator('kehu',{
+                rules:[
+                  {
+                    message:formatMessage({id:'mylist-form.email.kehu'})
+                  },
+                ],
+              })(
+                  <Input
+                    placeholder={formatMessage({ id: 'mylist-form.email.required' })}
+                  />
+                )}
+            </FormItem>
 
 
 
